@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
 
-ADD cert-sync /usr/local/bin
+ADD agent /usr/local/bin
 
-ENTRYPOINT ["/usr/local/bin/cert-sync", "sync"]
+ENTRYPOINT ["/usr/local/bin/agent", "sync"]
