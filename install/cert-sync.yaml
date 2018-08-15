@@ -55,7 +55,7 @@ spec:
       serviceAccountName: cert-sync-service-account
       containers:
         - name: cert-sync
-          image: "cert-sync:0.1.0"
+          image: "gcr.io/dunjut/cert-sync:latest" # not exist yet
           imagePullPolicy: IfNotPresent
           args:
           - --certDir
@@ -66,4 +66,4 @@ spec:
       volumes:
       - name: certdir
         hostPath:
-          path: /tmp/ingress-certs
+          path: /tmp/ingressgateway-certs
