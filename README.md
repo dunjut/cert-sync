@@ -2,7 +2,7 @@
 
 cert-sync is a [Istio](https://istio.io/) add-on to automate the synchronization between
 Kubernetes TLS secrets and istio-ingressgateway certificates, without having to re-deploy
-the istio-ingressgatway pods.
+the istio-ingressgateway pods.
 
 For any user-specified Kubernetes TLS secret, it will ensure there's a pair of
 corresponding public certificate (.crt) and private key (.key) exist in a shared volume
@@ -152,7 +152,7 @@ These secrets must be `kubernetes.io/tls` type and have the following annotation
 certsync.istio.io/autosync: "true"
 ```
 
-This annotation tells cert-sync to watch it updates and synchronize it. Here is an
+This annotation tells cert-sync to watch its updates and synchronize it. Here is an
 example:
 
 ```
