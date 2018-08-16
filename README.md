@@ -85,7 +85,7 @@ istio-ingressgateway's pod spec, and mount a shared volume to both of them. For 
           - name: certdir
             mountPath: "/etc/istio/ingressgateway-certs"
         - name: cert-sync
-          image: "gcr.io/dunjut/cert-sync:latest" # not exist yet
+          image: "dunjut/cert-sync:0.1.0"
           imagePullPolicy: IfNotPresent
           args:
           - --certDir

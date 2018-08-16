@@ -55,7 +55,7 @@ spec:
       serviceAccountName: cert-sync-service-account
       containers:
         - name: cert-sync
-          image: "gcr.io/dunjut/cert-sync:latest" # not exist yet
+          image: "dunjut/cert-sync:0.1.0"
           imagePullPolicy: IfNotPresent
           args:
           - --certDir
