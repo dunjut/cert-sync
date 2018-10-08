@@ -52,6 +52,10 @@ func init() {
 		fmt.Sprintf("Number of worker threads (%d-%d), default %d",
 			agent.MinThreadiness, agent.MaxThreadiness, agent.DefaultThreadiness),
 	)
+	syncCmd.PersistentFlags().StringVar(&opts.AnnotationKey, "annotationKey", "",
+		fmt.Sprintf("Custom annotation key for recognizing desired secrets, default %s", agent.CertSyncAnnotationKey))
+	syncCmd.PersistentFlags().StringVar(&opts.AnnotationVal, "annotationValue", "",
+		fmt.Sprintf("Custom annotation value for recognizing desired secrets, default %s", agent.CertSyncAnnotationVal))
 
 	rootCmd.AddCommand(syncCmd)
 }

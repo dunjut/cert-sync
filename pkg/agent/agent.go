@@ -33,9 +33,11 @@ type Agent struct {
 }
 
 type InitOptions struct {
-	CertDir    string
-	KubeConfig string
-	Thread     int
+	CertDir       string
+	KubeConfig    string
+	AnnotationKey string
+	AnnotationVal string
+	Thread        int
 }
 
 func (a *Agent) Initialize(opts InitOptions) {
@@ -47,6 +49,13 @@ func (a *Agent) Initialize(opts InitOptions) {
 	// validate threadiness
 	if a.threadiness, err = validateThreadiness(opts.Thread); err != nil {
 		glog.Fatalf("invalid threadiness %d: %v", opts.Thread, err)
+	}
+	// set desired annotation
+	if opts.AnnotationKey != "" {
+		CertSyncAnnotationKey = opts.AnnotationKey
+	}
+	if opts.AnnotationVal != "" {
+		CertSyncAnnotationVal = opts.AnnotationVal
 	}
 
 	// initialize Kubernetes client

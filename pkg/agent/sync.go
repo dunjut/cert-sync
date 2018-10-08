@@ -15,8 +15,11 @@ import (
 	"k8s.io/client-go/tools/cache"
 )
 
-const (
+var (
+	// desired annotation key and value for secrets synchronization.
+	// may be override by commandline flags
 	CertSyncAnnotationKey = "certsync.istio.io/autosync"
+	CertSyncAnnotationVal = "true"
 )
 
 // Run will start the controller.
@@ -202,7 +205,7 @@ func isTlsSecret(s *core_v1.Secret) bool {
 
 // check if user wants to automatically synchronize this secret
 func wantAutoSync(s *core_v1.Secret) bool {
-	return s.Annotations[CertSyncAnnotationKey] == "true"
+	return s.Annotations[CertSyncAnnotationKey] == CertSyncAnnotationVal
 }
 
 // haveConcernedUpdate checks if there's any update we concerned, include
