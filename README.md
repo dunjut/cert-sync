@@ -152,6 +152,10 @@ These secrets must be `kubernetes.io/tls` type and have the following annotation
 certsync.istio.io/autosync: "true"
 ```
 
+(or, some users may want to use a pair of custom annotation key and value, one of such
+use cases is to work with [cert-manager](https://github.com/jetstack/cert-manager) generated secrets. In such scenario, the
+commandline flags `--annotationKey` and `--annotationValue` could let you achieve this.)
+
 This annotation tells cert-sync to watch its updates and synchronize it. Here is an
 example:
 
